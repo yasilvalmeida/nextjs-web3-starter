@@ -1,180 +1,218 @@
-# Next.js Web3 Starter
+# ⚡️ Next.js Web3 Starter
 
-A modern Web3 application built with Next.js 15, featuring MetaMask and WalletConnect integration for Ethereum blockchain interactions.
+A modern, production-ready Web3 application built with **Next.js 15**, integrating **MetaMask** and **WalletConnect** for seamless Ethereum interactions. Includes token balance checks, token transfers, testing, and responsive UI.
 
-## Features
+---
 
-- 🚀 **Next.js 15** with App Router
-- 🔗 **Web3 Integration** with MetaMask and WalletConnect
-- 💰 **ERC20 Token Operations** - Check balances and transfer tokens
-- 🎨 **Modern UI** with Tailwind CSS
-- 📝 **TypeScript** for type safety
-- 🧪 **Testing Setup** with Jest and Playwright
-- 🔥 **React Hooks** for wallet state management
-- 📱 **Responsive Design** for mobile and desktop
+## 🚀 Features
 
-## Getting Started
+- ⚙️ **Next.js 15 (App Router)**
+- 🔐 **Wallet Integration**: MetaMask & WalletConnect
+- 💸 **ERC-20 Token Support**: Balance checks & token transfers
+- 🧑‍🎨 **Tailwind CSS** for responsive design
+- ✍️ **TypeScript** for robust type safety
+- 🧪 **Jest + Playwright** for unit and E2E testing
+- 🧠 **React Hooks** for Web3 state management
+- 📱 **Mobile Friendly** UI & UX
 
-### Prerequisites
+---
 
-- Node.js 18.x or later
-- npm, yarn, or pnpm
-- MetaMask browser extension (for testing)
+## 📦 Tech Stack
 
-### Installation
+| Layer       | Technology                         |
+|-------------|-------------------------------------|
+| Framework   | [Next.js 15](https://nextjs.org/)   |
+| Blockchain  | [ethers.js](https://docs.ethers.org/) |
+| Wallets     | MetaMask, WalletConnect             |
+| Styling     | Tailwind CSS                        |
+| State Mgmt  | React Hooks                         |
+| Testing     | Jest, Playwright                    |
+| Language    | TypeScript                          |
 
-1. Clone the repository:
+---
+
+## 🧱 Project Structure
+
+```
+src/
+├── app/                 # App Router pages
+│   ├── balance/         # Token balance checker
+│   ├── transfer/        # Token transfer page
+│   ├── globals.css      # Global styles
+│   ├── layout.tsx       # Global layout wrapper
+│   └── page.tsx         # Landing page
+├── components/          # UI components
+│   └── WalletConnector.tsx
+├── hooks/               # Custom hooks
+│   └── useERC20.ts
+├── lib/                 # Utility functions
+│   └── utils.ts
+├── providers/           # Web3 context provider
+│   └── Web3Provider.tsx
+└── __tests__/           # Unit and e2e tests
+```
+
+---
+
+## ⚙️ Getting Started
+
+### ✅ Prerequisites
+
+- Node.js `v18+`
+- Package manager: `npm`, `yarn`, or `pnpm`
+- MetaMask installed
+- WalletConnect project ID
+
+### 📥 Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/<your-username>/nextjs-web3-starter.git
 cd nextjs-web3-starter
-```
-
-2. Install dependencies:
-
-```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
 ```
 
-3. Set up environment variables:
+### 🔐 Environment Variables
+
+Create `.env.local` from example:
 
 ```bash
 cp .env.example .env.local
 ```
 
-Edit `.env.local` and set your WalletConnect project ID:
+Edit `.env.local` and add your WalletConnect ID:
 
-```
+```env
 NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id_here
 ```
 
-You can get a free project ID from [WalletConnect Cloud](https://cloud.walletconnect.com/).
+You can obtain one from [WalletConnect Cloud](https://cloud.walletconnect.com/).
 
-4. Run the development server:
+---
+
+## 🖥️ Run the App
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+# or yarn dev / pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Visit: [http://localhost:3000](http://localhost:3000)
 
-## Project Structure
+---
 
-```
-src/
-├── app/                 # Next.js 15 App Router
-│   ├── balance/        # Token balance checking page
-│   ├── transfer/       # Token transfer page
-│   ├── globals.css     # Global styles
-│   ├── layout.tsx      # Root layout
-│   └── page.tsx        # Home page
-├── components/         # React components
-│   └── WalletConnector.tsx
-├── hooks/              # Custom React hooks
-│   └── useERC20.ts     # ERC20 token interactions
-├── lib/                # Utility functions
-│   └── utils.ts
-├── providers/          # React context providers
-│   └── Web3Provider.tsx
-└── __tests__/          # Unit tests
-```
+## 🔍 Usage Guide
 
-## Available Scripts
+### 🔗 Connect Wallet
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run type-check` - Run TypeScript type checking
-- `npm run test` - Run unit tests
-- `npm run test:watch` - Run tests in watch mode
-- `npm run test:e2e` - Run end-to-end tests
-- `npm run test:e2e:ui` - Run e2e tests with UI
+1. Open homepage
+2. Click **MetaMask** or **WalletConnect**
+3. Follow prompt to connect
+4. Wallet address & ETH balance will appear
 
-## Usage
+### 📊 Check Token Balances
 
-### Connecting a Wallet
+1. Go to `/balance`
+2. Enter any **ERC20** token contract address
+3. Click **Check Balance**
+4. Or select a token from the popular list
 
-1. Click on either "MetaMask" or "WalletConnect" button on the homepage
-2. Follow the prompts to connect your wallet
-3. Once connected, you'll see your address and ETH balance
+### 💸 Transfer Tokens
 
-### Checking Token Balances
+1. Go to `/transfer`
+2. Fill in:
+   - ERC20 token contract
+   - Receiver address
+   - Amount
+3. Confirm transfer in wallet popup
 
-1. Navigate to the "Check Token Balance" page
-2. Enter an ERC20 token contract address
-3. Click "Check Balance" to see your token balance
-4. Use the popular tokens section for quick access to common tokens
+---
 
-### Transferring Tokens
+## ✅ Scripts
 
-1. Navigate to the "Send Tokens" page
-2. Enter the token contract address or come from the balance page
-3. Enter the recipient address and amount
-4. Click "Transfer" and confirm the transaction in your wallet
+| Script              | Description                     |
+|---------------------|---------------------------------|
+| `npm run dev`       | Start development server        |
+| `npm run build`     | Build app for production        |
+| `npm run start`     | Start production server         |
+| `npm run lint`      | Run ESLint                      |
+| `npm run type-check`| TypeScript checks               |
+| `npm run test`      | Run unit tests (Jest)           |
+| `npm run test:e2e`  | Run E2E tests (Playwright)      |
+| `npm run test:e2e:ui`| E2E tests with browser UI       |
 
-## Testing
+---
 
-### Unit Tests
+## 🧪 Testing
 
-Run unit tests with Jest:
+### 🔬 Unit Tests
 
 ```bash
 npm run test
 ```
 
-### End-to-End Tests
-
-Run e2e tests with Playwright:
+### 🧪 End-to-End (Playwright)
 
 ```bash
 npm run test:e2e
 ```
 
-To run tests with UI:
+With browser UI:
 
 ```bash
 npm run test:e2e:ui
 ```
 
-## Configuration
+---
 
-### Supported Networks
+## 🛠 Configuration
 
-By default, the application is configured for Ethereum Mainnet. You can modify the network configuration in `src/providers/Web3Provider.tsx`.
+### 🌐 Supported Networks
 
-### Adding Custom Tokens
+The app is currently configured for **Ethereum Mainnet**. You can customize network settings in:
 
-You can add popular tokens to the balance page by modifying the `popularTokens` array in `src/app/balance/page.tsx`.
+```ts
+src/providers/Web3Provider.tsx
+```
 
-## Contributing
+### 💎 Custom Tokens
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests for new functionality
-5. Run the test suite
-6. Submit a pull request
+Add ERC20 tokens to the `popularTokens` array in:
 
-## License
+```ts
+src/app/balance/page.tsx
+```
 
-This project is licensed under the MIT License.
+---
 
-## Security Notes
+## 🔐 Security Notes
 
-- Never commit private keys or sensitive information
-- Always verify contract addresses before interacting with tokens
-- Test on testnets before using on mainnet
-- Be cautious with transaction amounts
+- ❌ Never commit private keys or secrets
+- ✅ Validate all contract addresses
+- 🚫 Do not use real funds in development
+- 🧪 Always test on testnets first
 
-## Support
+---
 
-If you encounter any issues or have questions, please open an issue on the repository.
+## 🤝 Contributing
+
+1. Fork this repo
+2. Create your branch (`git checkout -b feature/foo`)
+3. Commit & push (`git commit -m 'Add foo'`)
+4. Submit PR
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](./LICENSE).
+
+---
+
+## 🙋‍♂️ Support
+
+Found a bug or need help?  
+Open an [issue](https://github.com/<your-username>/nextjs-web3-starter/issues).
+
+---
+
+**Happy building! 🔧**
